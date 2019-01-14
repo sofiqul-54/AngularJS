@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+    <head>
+        <title>TODO List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap.css" rel="stylesheet"/>
+        <link href="static/bootstrap-theme.css" rel="stylesheet"/>
+        <script src="static/angular.js"></script>
+
+    </head>
+    <body>
+        <div>
+            <p>Input something in the input box:</p>
+            Name: <input type="text" ng-model="name"/>
+            <p ng-bind="name"></p>
+
+        </div>
+        <div>
+            <p>Name : <input type="text" ng-model="mosta"/></p>
+            <p ng-bind="mosta"></p>
+        </div>
+        <div ng-init="firstName = 'John'">
+
+            <p>The name is <span ng-bind="firstName"></span></p>
+
+        </div>
+        <div>
+            {{5 + 5}}
+        </div>
+        <div>
+            <p>Input something in the input box:</p>
+            Name: <input type="text" ng-model="mos"/>
+            <p>{{mos}}</p>
+        </div>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            First Name: <input type="text" ng-model="firstName"><br>
+            Last Name: <input type="text" ng-model="lastName"><br>
+            <br>
+            Full Name: {{firstName + " " + lastName}}
+        </div>
+<!--        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope) {
+                $scope.firstName = "John";
+                $scope.lastName = "Doe";
+            });
+        </script>-->
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope){
+                $scope.firstName="Aman";
+                $scope.lastName="Rubel"
+            });
+        </script>
+        
+        <div ng-app="myApp" ng-controller="myCtrl">           
+           {{firstName + " " + lastName}}
+        </div>
+    </body>
+</html>
