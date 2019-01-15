@@ -12,32 +12,65 @@ and open the template in the editor.
         <link href="static/bootstrap.css" rel="stylesheet"/>
         <link href="static/bootstrap-theme.css" rel="stylesheet"/>
         <script src="static/angular.js"></script>
+        <style>
+            .ll{
+                width: 45%;
+                margin: 0 auto;    
+            }
+            .lll{
+
+                margin: 0 auto;    
+            }
+        </style>
     </head>
     <body>
-        <h1>The ng-model Directive</h1>
-        <div ng-app="myApp" ng-controller="myCtrl">
-            <h1 ng-click="changeName()">{{firstname}}</h1>
+        <div class="ll">
+            <h1>IDB-BISEW (J2EE) Round -37 CCSL</h1>
+
+            <div class="lll" ng-app="myApp" ng-controller="myCtrl">
+                <h1 ng-click="changeName()">{{firstname}}</h1>
+            </div>
         </div>
 
         <script>
             var app = angular.module('myApp', []);
             app.controller('myCtrl', function ($scope) {
-                $scope.firstname = "John";
+                $scope.firstname = "Md. Rajaul Islam (Faculty)";
                 $scope.changeName = function () {
-                    $scope.firstname = "Nelly";
+                    $scope.firstname = "Md. Mehedee Hassan (Class Captain)";
                     $scope.changeName = function () {
-                        $scope.firstname = "Mosta";
+                        $scope.firstname = "Md. Zobayer Hossain (Assistant Captain)";
                         $scope.changeName = function () {
-                            $scope.firstname = "Azad";
+                            $scope.firstname = "Md. Safayet Arefin (Associate Captain)";
+                            $scope.changeName = function () {
+                                $scope.firstname = "Nurun Nahar Moly(Ladies Captain)";
+                                $scope.changeName = function () {
+                                    $scope.firstname = "Israt Zahan Sushmi(Assistant. Ladies Captain)";
+                                    $scope.changeName = function () {
+                                        $scope.firstname = "Rozina Akter (Associate Ladies Captain)";
+                                        $scope.changeName = function () {
+                                            $scope.firstname = "G M Mortuza Ahmed (Senior Member)";
+                                            $scope.changeName = function () {
+                                                $scope.firstname = "Md. Mostafizur Rahman (Member)";
+                                                $scope.changeName = function () {
+                                                    $scope.firstname = "Abdul Wadud Azad (Member)";
+                                                    $scope.changeName = function () {
+                                                        $scope.firstname = "Md. Sofiqul Islam (Member)";
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-
             });
         </script>
 
-        <p>Click on the header to run the "changeName" function.</p>
-
-        <p>This example demonstrates how to use the controller to change model data.</p>
+        <!--        <p>Click on the header to run the "changeName" function.</p>
+        
+                <p>This example demonstrates how to use the controller to change model data.</p>-->
     </body>
 </html>
