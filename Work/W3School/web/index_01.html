@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap.css" rel="stylesheet"/>
+        <link href="static/bootstrap-theme.css" rel="stylesheet"/>
+        <script src="static/angular.js"></script>
+    </head>
+    <body>
+        <h1>Two-Way Binding</h1>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            Name : <input ng-model="name"/>
+            <h1>You entered :{{name}}</h1>
+        </div>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope) {
+                $scope.name = "Jhon Doe"
+            })
+        </script>
+        <div>
+            <h1>user Input</h1>
+            <form ng-app="" name="myForm">
+                Email : <input type="email" name="myAddress" ng-model="text"/>
+                <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+            </form>
+        </div>
+    </body>
+</html>
