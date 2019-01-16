@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>The ng-model Directive</title>
+        <title>Adding Filters to Expressions</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="static/bootstrap.css" rel="stylesheet"/>
@@ -14,15 +14,20 @@ and open the template in the editor.
         <script src="static/angular.js"></script>
     </head>
     <body>
-        <h1>The ng-model Directive</h1>
-        <div ng-app="myApp" ng-controller="myCtrl">
-            Name : <input ng-model="name"/>
-        </div>
-        <script>
-            var app = angular.module('myApp', []);
-            app.controller('myCtrl', function ($scope) {
-                $scope.name = "John Doe"
-            })
-        </script>
+        <h1>Adding Filters to Expressions</h1>
+                <div ng-app="myApp" ng-controller="myCtrl"> 
+                    <p>The First Name is {{firstName| lowercase }}</p>
+                    <p>The Last Name is {{lastName| uppercase }}</p>
+                </div>
+
+
+
+                <script>
+                    angular.module('myApp', []).controller('myCtrl', function ($scope) {
+                        $scope.firstName = "mosta",
+                                $scope.lastName = "fix"
+                    });
+                </script>
+
     </body>
 </html>

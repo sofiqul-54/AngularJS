@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html ng-app="myApp">
     <head>
         <title>The ng-model Directive</title>
         <meta charset="UTF-8">
@@ -14,15 +14,28 @@ and open the template in the editor.
         <script src="static/angular.js"></script>
     </head>
     <body>
-        <h1>The ng-model Directive</h1>
-        <div ng-app="myApp" ng-controller="myCtrl">
-            Name : <input ng-model="name"/>
+        <h1>The currency Filter</h1>
+        <div  ng-controller="myCtrl">
+            <p>Price : {{price| currency}}</p>
+            <p>The currency filter formats a number to a currency format.</p>
         </div>
+        =========================================================================
         <script>
             var app = angular.module('myApp', []);
             app.controller('myCtrl', function ($scope) {
-                $scope.name = "John Doe"
+                $scope.price = "58.998"
             })
         </script>
+        =========================================================================
+        <div  ng-controller="myCtrl">
+            <p>Price : {{price| currency : "BDT "}}</p>
+            <p>The currency filter formats a number to a currency format.</p>
+        </div>
+        
+        =========================================================================
+        <div  ng-controller="myCtrl">
+            <p>Price : {{price| currency : "BDT " : 3}}</p>
+            <p>The currency filter formats a number to a currency format.</p>
+        </div>
     </body>
 </html>
