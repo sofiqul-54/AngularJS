@@ -15,24 +15,25 @@ and open the template in the editor.
     </head>
     <body>
         <h1>The filter Filter</h1>
-        <div ng-app="myApp" ng-controller="myCtrl"> 
-
-            <p>The time is:</p>
-
-            <h1>{{theTime}}</h1>
-
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <table class="table table-striped table-bordered"> 
+                <tr>
+                    <th> Name</th>
+                </tr>
+                <tr ng-repeat="x in names| filter :''">
+                    <td>{{ x}}</td>
+                </tr>
+            </table>
         </div>
-
-        <p>The $interval service runs a function every specified millisecond.</p>
-
         <script>
             var app = angular.module('myApp', []);
-            app.controller('myCtrl', function ($scope, $interval) {
-                $scope.theTime = new Date().toLocaleTimeString();
-                $interval(function () {
-                    $scope.theTime = new Date().toLocaleTimeString();
-                }, 1000);
-            });
+            app.controller('myCtrl', function ($scope) {
+                $scope.names = [
+                    'Azad', 'Rojina', 'Mehedee', 'Jubayer',
+                    'Sushmi', 'Moly', 'Mosta',
+                    'Areefeen', 'Mahbub', 'Mortuiza'
+                ]
+            })
         </script>
     </body>
 </html>
