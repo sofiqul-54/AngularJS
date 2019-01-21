@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body>
+
+        <div ng-app="myApp" ng-controller="customersCtrl"> 
+
+            <table class="table table-bordered table-striped" style="width: 80%; margin: 0 auto">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Age</th>
+                </tr>
+                <tr ng-repeat="x in names">
+                    <td>{{ x.id}}</td>
+                    <td>{{ x.employee_name}}</td>
+                    <td>{{ x.employee_salary}}</td>
+                    <td>{{ x.employee_age}}</td>    
+                </tr>
+            </table>
+
+        </div>
+
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('customersCtrl', function ($scope, $http) {
+                $http.get("http://dummy.restapiexample.com/api/v1/employees")
+                        .then(function (response) {
+                            $scope.names = response.data
+                        });
+            });
+        </script>
+
+    </body>
+</html>
