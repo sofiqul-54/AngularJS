@@ -9,14 +9,14 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton action="index.xhtml" value="Home Page"></h:commandButton>
-            <h:commandButton action="edit.xhtml" value="Update Page"></h:commandButton>
-            <h:commandButton action="delete.xhtml" value="Delete Page"></h:commandButton>
+            <p:button outcome="index" value="Home Page" style="margin-right: 20px"></p:button>
+            <p:button outcome="edit" value="Update Page" style="margin-right: 20px"></p:button>
+            <p:button outcome="delete" value="Delete Page" style="margin-right: 20px"></p:button>
             <p:panelGrid columns="2">
                 <p:outputLabel value="Id:"></p:outputLabel>
                 <p:inputText value="#{studentBean.student.id}"></p:inputText>
 
-               
+
             </p:panelGrid>
             <p:commandButton action="#{studentBean.del()}" value="Delete"></p:commandButton>
             <p:commandButton action="#{studentBean.reset()}" value="Reset"></p:commandButton>
@@ -25,8 +25,8 @@
         <br/>
         <br/>
         <p:dataTable var="s" value="#{studentBean.list}">
-             <p:column headerText="ID:">
-                 <h:outputText value="#{s.id}"></h:outputText>
+            <p:column headerText="ID:">
+                <h:outputText value="#{s.id}"></h:outputText>
             </p:column>
             <p:column headerText="Name:">
                 <h:outputText value="#{s.name}"></h:outputText>
@@ -43,7 +43,7 @@
             <p:column headerText="Msg">
                 <h:outputText value="#{s.msg}"></h:outputText>
             </p:column>
-           
+
         </p:dataTable>
     </h:body>
 </html>
