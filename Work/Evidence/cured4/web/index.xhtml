@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Insert Page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3">
+                <p:outputLabel value="Name :"></p:outputLabel>
+                <p:inputText value="#{studentBean.student.name}" id="name" required="true" requiredMessage="Enter Your Name"></p:inputText>
+                <p:message for="name"></p:message>
+
+                <p:outputLabel value="Gender"></p:outputLabel>
+                <p:selectOneRadio value="#{studentBean.student.gender}" id="gen" required="true" requiredMessage="Select Your Gender">
+                    <f:selectItem itemLabel="Male" itemValue="Male"></f:selectItem>
+                    <f:selectItem itemLabel="Female" itemValue="Female"></f:selectItem>
+                </p:selectOneRadio>
+                <p:message for="gen"></p:message>
+
+                <p:outputLabel value="Subject"></p:outputLabel>
+                <p:selectManyCheckbox value="#{studentBean.completedSubject}" id="sub" required="true" requiredMessage="Select Your Subject">
+                    <f:selectItem itemLabel="J2EE" itemValue="J2EE"></f:selectItem>
+                    <f:selectItem itemLabel="ASCD" itemValue="ASCD"></f:selectItem>
+                    <f:selectItem itemLabel="DDD" itemValue="DDD"></f:selectItem>
+                    <f:selectItem itemLabel="NT" itemValue="NT"></f:selectItem>
+                    <f:selectItem itemLabel="WDPS" itemValue="WDPS"></f:selectItem>
+                </p:selectManyCheckbox>
+                <p:message for="sub"></p:message>
+
+                <p:outputLabel value="Location"></p:outputLabel>
+                <p:selectManyCheckbox value="#{studentBean.student.setRound}" id="loc" required="true" requiredMessage="Select Your Location">
+                    <f:selectItem itemLabel="Dhanmondi" itemValue="Dhanmondi"></f:selectItem>
+                    <f:selectItem itemLabel="Mirpur" itemValue="Mirpur"></f:selectItem>
+                    <f:selectItem itemLabel="Motijheel" itemValue="Motijheel"></f:selectItem>
+                </p:selectManyCheckbox>
+                <p:message for="loc"></p:message>
+
+                <p:outputLabel value="Remarks :"></p:outputLabel>
+                <p:inputTextarea value="#{studentBean.student.msg}" ></p:inputTextarea>
+            
+                <p:commandButton action="#{studentBean.save()}"></p:commandButton>
+            </h:panelGrid>
+            
+        </h:form>
+        <p:dataTable var="s" value="#{studentBean.list}">
+            <p:column headerText="ID">
+                <h:outputText value="#{s.id}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Subject">
+                <h:outputText value="#{s.subject}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Location">
+                <h:outputText value="#{s.round}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Remarks">
+                <h:outputText value="#{s.msg}"></h:outputText>
+            </p:column>
+            
+            
+        </p:dataTable>
+    </h:body>
+</html>
+
