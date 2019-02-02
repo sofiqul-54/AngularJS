@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Update Page</title>
+        <style>
+            .hh{
+                background-color: #ccffcc;
+                margin: 0 auto;
+                padding-left: 10px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                padding-right: 10px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div >
+            <p:button outcome="index" value="Insert"></p:button>
+            <p:button outcome="update" value="Update"></p:button> 
+            <p:button outcome="delete" value="Delete"></p:button>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="ID :"></p:outputLabel>
+                    <p:inputText value="#{studentBean.student.id}"></p:inputText>
+                    
+                    <p:outputLabel value="Name :"></p:outputLabel>
+                    <p:inputText value="#{studentBean.student.name}" ></p:inputText>
+
+                    <p:outputLabel value="Gender :"></p:outputLabel>
+                    <p:selectOneRadio value="#{studentBean.student.gender}">
+                        <f:selectItem itemLabel="Male" itemValue="Male"></f:selectItem>
+                        <f:selectItem itemLabel="Female" itemValue="Female"></f:selectItem>
+                    </p:selectOneRadio>
+
+                    <p:outputLabel value="Subject"></p:outputLabel>
+                    <p:selectManyCheckbox value="#{studentBean.completedCourses}">
+                        <f:selectItem itemLabel="J2EE" itemValue="J2EE"></f:selectItem>
+                        <f:selectItem itemLabel="WDPS" itemValue="WDPS"></f:selectItem>
+                        <f:selectItem itemLabel="CSAD" itemValue="CSAD"></f:selectItem>
+                        <f:selectItem itemLabel="NT" itemValue="NT"></f:selectItem>
+                        <f:selectItem itemLabel="DDD" itemValue="DDD"></f:selectItem>
+                    </p:selectManyCheckbox>
+
+                    <p:outputLabel value="Location"></p:outputLabel>
+                    <p:selectOneMenu value="#{studentBean.student.round}">
+                        <f:selectItem itemLabel="Selecft A Location" itemValue=""></f:selectItem>
+                        <f:selectItem itemLabel="Dhanmondi" itemValue="Dhanmondi"></f:selectItem>
+                        <f:selectItem itemLabel="Mirpur" itemValue="Mirpur"></f:selectItem>
+                        <f:selectItem itemLabel="Agargone" itemValue="Agargone"></f:selectItem>
+                        <f:selectItem itemLabel="Zigatola" itemValue="Zigatola"></f:selectItem>
+                        <f:selectItem itemLabel="Motijheel" itemValue="Motijheel"></f:selectItem>
+                        <f:selectItem itemLabel="Taltola" itemValue="Taltola"></f:selectItem>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Remarks"></p:outputLabel>
+                    <p:inputTextarea value="#{studentBean.student.msg}"></p:inputTextarea>
+
+                    <p:commandButton action="#{studentBean.save()}" value="Update"></p:commandButton>
+                    <p:commandButton action="#{studentBean.reset()}" value="Reset"></p:commandButton>
+
+                </h:panelGrid>
+            </h:form>
+        </div>
+        <br></br>
+        <p:dataTable var="s" value="#{studentBean.list}">
+            <p:column headerText="ID">
+                <h:outputText value="#{s.id}"></h:outputText>
+            </p:column>
+
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"></h:outputText>
+            </p:column>
+
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"></h:outputText>
+            </p:column>
+
+            <p:column headerText="Subject">
+                <h:outputText value="#{s.courses}"></h:outputText>
+            </p:column>
+
+            <p:column headerText="Location">
+                <h:outputText value="#{s.round}"></h:outputText>
+            </p:column>
+
+            <p:column headerText="Remarks">
+                <h:outputText value="#{s.msg}"></h:outputText>
+            </p:column>
+        </p:dataTable>
+
+    </h:body>
+</html>
+
