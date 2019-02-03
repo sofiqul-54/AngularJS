@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Insert Page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:button outcome="index" value="Insert Page" style="margin-right: 20px"></p:button>
+            <p:button outcome="update" value="Update Page" style="margin-right: 20px"></p:button>
+            <p:button outcome="delete" value="Update Page" style="margin-right: 20px"></p:button>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Name :"></p:outputLabel>
+                <p:inputText value="#{studentBean.student.name}"></p:inputText>
+
+                <p:outputLabel value="Gender :"></p:outputLabel>
+                <p:selectOneRadio value="#{studentBean.student.gender}">
+                    <f:selectItem itemLabel="Male" itemValue="Male"></f:selectItem>
+                    <f:selectItem itemLabel="Female" itemValue="Female"></f:selectItem>
+                </p:selectOneRadio>
+
+                <p:outputLabel value="Courses"></p:outputLabel>
+                <p:selectManyCheckbox value="#{studentBean.completedCourses}">
+                    <f:selectItem itemLabel="PPT" itemValue="PPT"></f:selectItem>
+                    <f:selectItem itemLabel="JAVA" itemValue="JAVA"></f:selectItem>
+                    <f:selectItem itemLabel="JavaScript" itemValue="JavaScript"></f:selectItem>
+                    <f:selectItem itemLabel="AngularJS" itemValue="AngularJS"></f:selectItem>
+                </p:selectManyCheckbox>
+
+                <p:outputLabel value="Round"></p:outputLabel>
+                <p:selectOneMenu value="#{studentBean.student.round}">
+                    <f:selectItem itemLabel="Round-36" itemValue="Round-36"></f:selectItem>
+                    <f:selectItem itemLabel="Round-37" itemValue="Round-37"></f:selectItem>
+                    <f:selectItem itemLabel="Round-38" itemValue="Round-38"></f:selectItem>
+                    <f:selectItem itemLabel="Round-39" itemValue="Round-39"></f:selectItem>
+                    <f:selectItem itemLabel="Round-40" itemValue="Round-40"></f:selectItem>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Message"></p:outputLabel>
+                <p:inputTextarea value="#{studentBean.student.msg}"></p:inputTextarea>
+
+                <p:commandButton action="#{studentBean.save()}" value="Submit"></p:commandButton>
+            </h:panelGrid>
+        </h:form>
+        <p:dataTable var="s" value="#{studentBean.list}">
+            <p:column headerText="ID">
+                <h:outputText value="#{s.id}"></h:outputText>
+            </p:column>
+            
+             <p:column headerText="Name">
+                 <h:outputText value="#{s.name}"></h:outputText>
+            </p:column>
+            
+             <p:column headerText="Gender">
+                 <h:outputText value="#{s.gender}"></h:outputText>
+            </p:column>
+            
+             <p:column headerText="Courses">
+                 <h:outputText value="#{s.completedCourses}"></h:outputText>
+            </p:column>
+            
+             <p:column headerText="Round">
+                 <h:outputText value="#{s.round}"></h:outputText>
+            </p:column>
+            
+             <p:column headerText="Message">
+                 <h:outputText value="#{s.msg}"></h:outputText>
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
+
